@@ -86,14 +86,14 @@ class DataBase:
 
 
 # создание таблицы
-def create_entry_db(table_name='booklist', path='../booklist.db'):
+def create_entry_db(table_name='booklist', path='./booklist.db'):
     db = DataBase(path)
     db.create_table(table_name)
 
 
 # соединение с базой данных
 def open_db():
-    db = DataBase('../booklist.db')
+    db = DataBase('./booklist.db')
     return db
 
 #Проверка есть строка с таким значением ячейки
