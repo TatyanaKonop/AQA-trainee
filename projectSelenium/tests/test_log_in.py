@@ -34,5 +34,5 @@ def test_log_in_failed(browser, send_link, login_and_password):  # Negative test
 
     instance_log_in_page = LoginPage(browser, url)  # Execute transition between pages
     result = instance_log_in_page.log_in(login, password)  # Execute method page, receive message
-    # Checking content of greeting message after successful log in
+    # Checking content of warning message after successful log in
     assert message_warning == result, "Log in isn't failed, there is no a warning message"
