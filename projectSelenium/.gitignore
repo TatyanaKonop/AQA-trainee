@@ -4,4 +4,4 @@ pytest_cache/
 venvs/
 .md
 /test/.pytest_cache/
-!READMY.md
+!READMY.md__pycache__/
