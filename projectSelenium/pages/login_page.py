@@ -5,13 +5,9 @@ from pages.locators import SampleAppLocators
 
 class LoginPage(BasePage):  # Log in page
     def log_in(self, login, password):
-        input_login = self.browser.find_element(*SampleAppLocators.INPUT_LOGIN)
-        input_login.send_keys(login)  # Input login
-        input_password = self.browser.find_element(*SampleAppLocators.INPUT_PASSWORD)
-        input_password.send_keys(password)  # Input password
-        button_login = self.browser.find_element(*SampleAppLocators.BUTTON_LOGIN)
-        button_login.click()  # Click button login
-        label_login = self.browser.find_element(*SampleAppLocators.LABEL_LOGIN)
-        value_label_login = label_login.text  # Receive text of message
-        return value_label_login
+        self.send_keys_method(*SampleAppLocators.INPUT_LOGIN, login)  # Input login
+        self.send_keys_method(*SampleAppLocators.INPUT_PASSWORD, password) # Input password
+        self.click_method(*SampleAppLocators.BUTTON_LOGIN) # Click button login
+        label_login = self.receive_text_method(*SampleAppLocators.LABEL_LOGIN)  # Receive text of message
+        return label_login
 

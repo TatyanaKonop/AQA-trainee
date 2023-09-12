@@ -24,6 +24,7 @@ class ProgressBarLocators:
     RESULT = (By.XPATH, '//p[@id="result"]')
 
 
+
 class SampleAppLocators:
     INPUT_LOGIN = (By.XPATH, '//input[@name="UserName"]')
     INPUT_PASSWORD = (By.XPATH, '//input[@name="Password"]')

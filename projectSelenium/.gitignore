@@ -2,6 +2,5 @@
 .pytest_cache
 pytest_cache/
 venvs/
-.md
 /test/.pytest_cache/
-!READMY.md__pycache__/
+__pycache__/

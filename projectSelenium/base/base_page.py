@@ -1,7 +1,3 @@
-import random
-import string
-
-
 class BasePage:
     # Initialization base class
     def __init__(self, browser, url, timeout=10):
@@ -16,13 +12,20 @@ class BasePage:
         current_url = self.browser.current_url
         print(f'Current URL {current_url}')
 
-    @staticmethod
-    def assertion_values_text(sample, result):  # Method for assertion
-        assert sample == result
-        print(f'Assertion is true')
+    def click_method(self, how, what):
+        element = self.browser.find_element(how, what)
+        element.click()
 
-    @staticmethod
-    def generate_random_string(length):  # Method for generation sentence
-        letters = string.ascii_lowercase
-        rand_string = ''.join(random.choice(letters) for i in range(length))
-        return rand_string
+    def send_keys_method(self, how, what, value_input):
+        element = self.browser.find_element(how, what)
+        element.send_keys(value_input)
+
+    def receive_text_method(self, how, what):  # Get text of element
+        element = self.browser.find_element(how, what)
+        element = element.text
+        return element
+
+    def get_attribute_method(self, how, what, name_attribute):
+        element = self.browser.find_element(how, what)
+        value_attribute = element.get_attribute(name_attribute)
+        return value_attribute
