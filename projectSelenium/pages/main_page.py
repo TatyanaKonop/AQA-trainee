@@ -2,7 +2,6 @@ from base.base_page import BasePage
 from pages.locators import MainPageLocators
 
 
-
 class MainPage(BasePage):
     def go_to_dynamic_id_page(self):  # Go to page with dynamic ID button
         self.click_method(*MainPageLocators.LINK_DYNAMIC_BUTTON)

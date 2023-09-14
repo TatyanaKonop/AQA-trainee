@@ -16,6 +16,7 @@ class ProgressBar(BasePage):  # Page of progres bar
             self.click_method(*ProgressBarLocators.BUTTON_STOP)
         value_result = self.receive_text_method(
             *ProgressBarLocators.RESULT)  # Find element (result) and receive text of sentence of stopping progress bar
-        value_duration = int(value_result[(value_result.rfind(' ') + 1)::])  # Receive value of duration from text on the button
+        value_duration = int(
+            value_result[(value_result.rfind(' ') + 1)::])  # Receive value of duration from text on the button
         print(f" Value of duration is: {value_duration}")
         return value_duration

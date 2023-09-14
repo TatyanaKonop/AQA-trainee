@@ -30,18 +30,14 @@ def send_link():
 def send_number_of_test_repetition():
     return int(3)
 
+
 @pytest.fixture(scope="function")  # Length of sentence for test test_input_text
 def send_number_of_length():
     return int(5)
 
 
-@pytest.fixture(scope="function")  # login and password, successful and warning messages data
-def login_and_password():
-    correct_dict_login_password = {"login": "Rert", "password": "pwd"}
-    incorrect_dict_login_password = {"login": "Rert", "password": "Pwd"}
-    message_successful = tuple(map(str, f'Welcome, {correct_dict_login_password["login"]}!'.split()))
-    message_when_log_in_failed = tuple(map(str, 'Invalid username/password'.split()))
-    return correct_dict_login_password, incorrect_dict_login_password, message_successful, message_when_log_in_failed
-
-
-
+class LogIn:
+    CORRECT_LOGIN_PASSWORD = {"login": "Rert", "password": "pwd"}
+    INCORRECT_LOGIN_PASSWORD = {"login": "Rert", "password": "Pwd"}
+    MESSAGE_SUCCESSFUL = tuple(map(str, f'Welcome, {CORRECT_LOGIN_PASSWORD["login"]}!'.split()))
+    MESSAGE_WHEN_LOG_IN_FAILED = tuple(map(str, 'Invalid username/password'.split()))

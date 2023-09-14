@@ -1,12 +1,12 @@
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
+from .conftest import LogIn
 
 
-def test_log_in_successful(browser, send_link, login_and_password):  # Positive test log in
-    login_password = login_and_password[0]
-    login = login_password["login"]
-    password = login_password["password"]
-    message_successful = ' '.join(login_and_password[2])
+def test_log_in_successful(browser, send_link):  # Positive test log in
+    login = LogIn.CORRECT_LOGIN_PASSWORD["login"]
+    password = LogIn.CORRECT_LOGIN_PASSWORD["password"]
+    message_successful = ' '.join(LogIn.MESSAGE_SUCCESSFUL)
     instance_main_page = MainPage(browser,
                                   send_link)  # initialize the Page Object, pass the driver instance and url
     # to the constructor
@@ -20,12 +20,10 @@ def test_log_in_successful(browser, send_link, login_and_password):  # Positive 
     assert message_successful == result, "Log in isn't successful, there is no a greeting message"
 
 
-
-def test_log_in_failed(browser, send_link, login_and_password):  # Negative test log in
-    login_password = login_and_password[1]
-    login = login_password["login"]
-    password = login_password["password"]
-    message_warning = ' '.join(login_and_password[3])
+def test_log_in_failed(browser, send_link):  # Negative test log in
+    login = LogIn.INCORRECT_LOGIN_PASSWORD["login"]
+    password = LogIn.INCORRECT_LOGIN_PASSWORD["password"]
+    message_warning = ' '.join(LogIn.MESSAGE_WHEN_LOG_IN_FAILED)
     instance_main_page = MainPage(browser,
                                   send_link)  # initialize the Page Object, pass the driver instance and url to the constructor
     instance_main_page.open()  # Open main page
