@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  py:
+    build: ./pop
+    depends_on:
+      - standalone-chrome
+
+  standalone-chrome:
+    image: selenium/standalone-chrome
+    ports:
+      - "4444:4444"
+    
+      
+    
+    
+   
+
